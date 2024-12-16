@@ -17,12 +17,6 @@
     "image": "/assets/media/icons/request.webp",
     "categories": ["all"]
   },
-    {
-    "name": "College Bowl",
-    "link": "https://retrobowl.college/",
-    "image": "/assets/media/icons/request.web",
-    "categories": ["all"]
-  },  
   {
     "name": "Fancade",
     "link": "https://play.fancade.com",
@@ -1548,8 +1542,8 @@
     "categories": ["all"]
   },
   {
-    "name": "Retro Bowl",
-    "link": "/e/2/retro/index.html",
+    "name": "College Bowl",
+    "link": "https://retrobowl.college/",
     "image": "/assets/media/icons/retro.webp",
     "categories": ["all,", "sports", "local"]
   },
