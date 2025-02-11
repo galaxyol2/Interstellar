@@ -5,17 +5,20 @@ try {
 } catch (e) {
   inFrame = true;
 }
+
 if (!localStorage.getItem("ab")) localStorage.setItem("ab", true);
+
 if (
   !inFrame &&
   !navigator.userAgent.includes("Firefox") &&
   localStorage.getItem("ab") === "true"
 ) {
   const popup = open("about:blank", "_blank");
+
   setTimeout(() => {
     if (!popup || popup.closed) {
       alert(
-        "Please allow popups for this site. Doing so will allow us to open the site in a about:blank tab and preventing this site from showing up in your history. You can turn this off in the site settings.",
+        "Please allow popups for this site. Doing so will allow us to open the site in an about:blank tab and prevent this site from showing up in your history. You can turn this off in the site settings."
       );
     } else {
       const doc = popup.document;
@@ -46,16 +49,17 @@ if (
 
       const script = doc.createElement("script");
       script.textContent = `
-      window.onbeforeunload = function (event) {
-        const confirmationMessage = 'Leave Site?';
-        (event || window.event).returnValue = confirmationMessage;
-        return confirmationMessage;
-      };
-    `;
+        window.onbeforeunload = function (event) {
+          const confirmationMessage = 'Leave Site?';
+          (event || window.event).returnValue = confirmationMessage;
+          return confirmationMessage;
+        };
+      `;
       doc.head.appendChild(script);
     }
-  }, 2000);
+  }, 2000); // Proper closure of the setTimeout function
 }
+
 // Particles
 document.addEventListener("DOMContentLoaded", event => {
   if (window.localStorage.getItem("Particles") === "true") {
@@ -172,6 +176,7 @@ document.addEventListener("DOMContentLoaded", event => {
     particlesJS("particles-js", particlesConfig);
   }
 });
+
 // Splash texts
 const SplashT = [
   "Over 8 Million Users since 2023",
@@ -195,8 +200,8 @@ function US() {
 }
 
 SplashE.innerText = SplashT[SplashI];
-
 SplashE.addEventListener("click", US);
+
 // Random URL
 function getRandomUrl() {
   const randomUrls = [
